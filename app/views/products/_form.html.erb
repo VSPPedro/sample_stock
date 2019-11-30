@@ -1,32 +1,38 @@
 <%= form_with(model: product, local: true) do |form| %>
   <% if product.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <h2 class="subtitle"><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
       <ul>
         <% product.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <li class="notification is-danger"><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name, class: "label" %>
+    <%= form.text_field :name, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
+    <%= form.label :price, class: "label" %>
+    <%= form.text_field :price, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
+    <%= form.label :quantity, class: "label" %>
+    <%= form.number_field :quantity, class: "input" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field is-grouped">
+    <div class="control">
+      <%= form.submit "Submit", class: "button is-info" %>
+    </div>
+  
+    <div class="control">
+      <%= link_to 'Back', products_path, class: "button is-info" %>
+    </div>
   </div>
 <% end %>
