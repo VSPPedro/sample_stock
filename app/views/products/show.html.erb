@@ -1,32 +1,15 @@
 <section class="section">
-  <% if notice.present? %>
-    <p id="notice" class="notification is-primary"><%= notice %></p>
-  <% end %>
-  <div id="show">
-    <h1 class="title">Product</h1>
-    <p>
-      <strong class="subtitle">Name:</strong>
-      <%= @product.name %>
-    </p>
-    <p>
-      <strong class="subtitle">Price:</strong>
-      <%= number_to_currency(@product.price) %>
-    </p>
-    <p>
-      <strong class="subtitle">Quantity:</strong>
-      <%= @product.quantity %>
-    </p>
-  </div>
+  <%= render 'detail', product: @product, title: "Product" %>
+
   <div class="field is-grouped">
     <div class="control">
-        <%= link_to 'Edit', edit_product_path(@product), class: "button is-info" %>
+      <%= link_to 'Edit', edit_product_path(product), class: "button is-info" %>
     </div>
     <div class="control">
-        <%= link_to 'Destroy', @product, class: "button is-info", method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Destroy', product, class: "button is-info", method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
     <div class="control">
       <%= link_to 'Back', products_path, class: "button is-info" %>
     </div>
   </div>
 </section>
-

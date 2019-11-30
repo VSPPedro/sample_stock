@@ -1,0 +1,18 @@
+<% if notice.present? %>
+<p id="notice" class="notification is-primary"><%= notice %></p>
+<% end %>
+<div id="show">
+  <h1 class="title"><%= title %></h1>
+  <p>
+    <strong class="subtitle">Name:</strong>
+    <%= product.name %>
+  </p>
+  <p>
+    <strong class="subtitle">Price:</strong>
+    <%= number_to_currency(product.price) %>
+  </p>
+  <p>
+    <strong class="subtitle">Quantity:</strong>
+    <%= product.quantity %>
+  </p>
+</div>

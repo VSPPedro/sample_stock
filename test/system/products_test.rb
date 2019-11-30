@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class ProductsTest < ApplicationSystemTestCase
   setup do
-    @product = products(:one)
+    product = products(:one)
   end
 
   test "visiting the index" do
@@ -14,9 +14,9 @@ class ProductsTest < ApplicationSystemTestCase
     visit products_url
     click_on "New Product"
 
-    fill_in "quantity", with: @product.quantity
-    fill_in "Name", with: @product.name
-    fill_in "Price", with: @product.price
+    fill_in "quantity", with: product.quantity
+    fill_in "Name", with: product.name
+    fill_in "Price", with: product.price
     click_on "Create Product"
 
     assert_text "Product was successfully created"
@@ -27,9 +27,9 @@ class ProductsTest < ApplicationSystemTestCase
     visit products_url
     click_on "Edit", match: :first
 
-    fill_in "quantity", with: @product.quantity
-    fill_in "Name", with: @product.name
-    fill_in "Price", with: @product.price
+    fill_in "quantity", with: product.quantity
+    fill_in "Name", with: product.name
+    fill_in "Price", with: product.price
     click_on "Update Product"
 
     assert_text "Product was successfully updated"
